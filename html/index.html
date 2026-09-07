@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUCU Hotwire Ignition</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="hotwire-app" class="hotwire-app">
+        <!-- Canvas for spark particle effects -->
+        <canvas id="sparks-canvas"></canvas>
+
+        <!-- Right-Aligned BUCU HUD Card -->
+        <div class="hotwire-card" id="hotwire-card" tabindex="0">
+            <!-- Header with Title and Cancel Button -->
+            <div class="card-header">
+                <div class="brand-badge">
+                    <span class="brand-dot"></span>
+                    <span class="brand-title">BYPASS KONTAK</span>
+                </div>
+                <!-- Prominent Exit / Cancel Button -->
+                <button class="header-cancel-btn" id="header-cancel-btn" type="button" title="Keluar dari Hotwire">
+                    ✕ KELUAR (ESC / X)
+                </button>
+            </div>
+
+            <!-- Wire Progress Channel (3 Wires) -->
+            <div class="wires-container">
+                <div class="wire-item active" id="wire-1" data-wire="1">
+                    <span class="wire-color-tag red"></span>
+                    <div class="wire-details">
+                        <span class="wire-name">Kabel Starter</span>
+                        <span class="wire-status" id="wire-status-1">MENYAMBUNG...</span>
+                    </div>
+                    <span class="wire-check">●</span>
+                </div>
+                <div class="wire-item" id="wire-2" data-wire="2">
+                    <span class="wire-color-tag blue"></span>
+                    <div class="wire-details">
+                        <span class="wire-name">Jalur Aki 12V</span>
+                        <span class="wire-status" id="wire-status-2">MENUNGGU</span>
+                    </div>
+                    <span class="wire-check">○</span>
+                </div>
+                <div class="wire-item" id="wire-3" data-wire="3">
+                    <span class="wire-color-tag yellow"></span>
+                    <div class="wire-details">
+                        <span class="wire-name">Switch Kontak</span>
+                        <span class="wire-status" id="wire-status-3">MENUNGGU</span>
+                    </div>
+                    <span class="wire-check">○</span>
+                </div>
+            </div>
+
+            <!-- Rotary Precision Dial -->
+            <div class="dial-wrapper" id="dial-wrapper">
+                <svg class="dial-svg" viewBox="0 0 220 220">
+                    <!-- Background Dial Track -->
+                    <circle class="dial-track" cx="110" cy="110" r="85" />
+                    <!-- Visual Dial Ticks -->
+                    <circle class="dial-ticks" cx="110" cy="110" r="85" />
+                    <!-- Sweet Spot Target Zone Arc -->
+                    <circle class="dial-target" id="dial-target" cx="110" cy="110" r="85" />
+                    <!-- Rotating Needle -->
+                    <g id="needle-group">
+                        <line class="dial-needle" x1="110" y1="110" x2="110" y2="28" />
+                        <circle class="dial-needle-tip" cx="110" cy="28" r="4.5" />
+                    </g>
+                    <!-- Center Decorative Hub -->
+                    <circle class="dial-center-cap" cx="110" cy="110" r="16" />
+                    <circle class="dial-center-dot" cx="110" cy="110" r="7" />
+                </svg>
+
+                <!-- Center Key Strike Indicator -->
+                <div class="dial-center-overlay" id="dial-center-overlay">
+                    <span class="strike-space-tag">SPASI</span>
+                    <span class="strike-sub-tag">KLIK DI SINI</span>
+                </div>
+            </div>
+
+            <!-- Instructions & Hint -->
+            <div class="prompt-section">
+                <div class="stage-info-text" id="stage-info-text">Tahap 1: Sambung Kabel Starter</div>
+                <div class="stage-hint-text" id="stage-hint-text">Tekan SPASI atau KLIK saat jarum di zona hijau</div>
+            </div>
+
+            <!-- Big Clickable Strike Button -->
+            <button class="strike-button" id="strike-button" type="button">
+                <span class="button-icon">⚡</span>
+                <span class="button-label" id="button-label">SAMBUNG KABEL [SPASI]</span>
+            </button>
+
+            <!-- Bottom Cancel Button -->
+            <button class="footer-cancel-btn" id="footer-cancel-btn" type="button">
+                BATALKAN HOTWIRE [ESC / X]
+            </button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
